@@ -1,0 +1,32 @@
+{
+    "@timestamp":"2020-11-20T09:53:05.852Z",
+    "@metadata":{
+        "beat":"filebeat",
+        "type":"_doc",
+        "version":"7.10.0"
+    },
+    "host":{
+        "name":"ml-dev"
+    },
+    "agent":{
+        "version":"7.10.0",
+        "hostname":"ml-dev",
+        "ephemeral_id":"4c1b201b-7f1d-43e6-aabf-30ac969d7c71",
+        "id":"f27207ee-6bce-486b-a855-c1b48b0fa90a",
+        "name":"ml-dev",
+        "type":"filebeat"
+    },
+    "log":{
+        "offset":1656046173,
+        "file":{
+            "path":"/home/sconstantino/Downloads/MovistarPlus-accepts.log"
+        }
+    },
+    "message":"Nov 20 10:41:02 127.0.0.1 ASM: unit_hostname=\"APP_WAF06.telefonica.com\",management_ip_address=\"172.27.112.247\",http_class_name=\"/Telefonica_MovistarES/policy_MovistarPlus_clientservices.dof6.com\",web_application_name=\"/Telefonica_MovistarES/policy_MovistarPlus_clientservices.dof6.com\",policy_name=\"/Telefonica_MovistarES/policy_MovistarPlus_clientservices.dof6.com\",policy_apply_date=\"2020-10-29 11:20:03\",violations=\"\",support_id=\"14165305854629820981\",request_status=\"passed\",response_code=\"201\",ip_client=\"31.4.176.189\",route_domain=\"0\",method=\"POST\",protocol=\"HTTP\",query_string=\"qsp=http://v36B.voddeliveryservices.dof6.com H\",x_forwarded_for_header_value=\"N/A\",sig_ids=\"\",sig_names=\"\",date_time=\"2020-11-20 10:41:01\",severity=\"Informational\",attack_type=\"\",geo_location=\"ES\",ip_address_intelligence=\"N/A\",username=\"N/A\",session_id=\"53232b0b43be21c9\",src_port=\"16035\",dest_port=\"443\",dest_ip=\"10.1.155.0\",sub_violations=\"\",virus_name=\"N/A\",violation_rating=\"0\",websocket_direction=\"N/A\",websocket_message_type=\"N/A\",device_id=\"N/A\",staged_sig_ids=\"\",staged_sig_names=\"\",blocking_exception_reason=\"N/A\",captcha_result=\"not_received\",uri=\"/playready/auth.svc/yomvi/android.cell/accounts/28650003175736-TEF/devices/0\",request=\"POST /playready/auth.svc/yomvi/android.cell/accounts/28650003175736-TEF/devices/0?qsp=http://v36B.voddeliveryservices.dof6.com HTTP/1.1\\r\\nHost: clientservices.dof6.com\\r\\nConnection: keep-alive\\r\\nContent-Length: 58\\r\\nAccept: */*\\r\\nOrigin: http://apps.dof6.com\\r\\nSec-Fetch-Dest: empty\\r\\nUser-Agent: Mozilla/5.0 (Linux; Android 6.0.1; SM-J500FN Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/80.0.3987.132 Mobile Safari/537.36\\r\\nContent-Type: application/x-www-form-urlencoded\\r\\nX-Requested-With: es.plus.yomvi\\r\\nSec-Fetch-Site: cross-site\\r\\nSec-Fetch-Mode: cors\\r\\nReferer: http://apps.dof6.com/nmp.html?bv=0.7.2\\r\\nAccept-Encoding: gzip, deflate\\r\\nAccept-Language: es-ES,es;q=0.9,en-US;q=0.8,en;q=0.7\"",
+    "input":{
+        "type":"log"
+    },
+    "ecs":{
+        "version":"1.6.0"
+    }
+}
