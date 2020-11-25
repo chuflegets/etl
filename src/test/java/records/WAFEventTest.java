@@ -70,7 +70,7 @@ class WAFEventTest {
 
     @Test
     void getMethod() {
-        assertNotNull(wafEvent.getMethod());
+        assertNotNull(wafEvent.getRequestMethod());
     }
 
     @Test
@@ -105,7 +105,7 @@ class WAFEventTest {
 
     @Test
     void getStatus() {
-        assertTrue(wafEvent.getStatus() != null);
+        assertTrue(wafEvent.getRequestStatus() != null);
     }
 
     @Test

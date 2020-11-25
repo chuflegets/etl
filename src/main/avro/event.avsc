@@ -1,0 +1,71 @@
+{
+    "namespace": "records.avro",
+    "type": "record",
+    "name": "Event",
+    "fields": [
+        {
+            "name": "timestamp",
+            "type": "long"
+        },
+        {
+            "name": "src_ip",
+            "type": "string"
+        },
+        {
+            "name": "geolocation",
+            "type": "string"
+        },
+        {
+            "name": "request_method",
+            "type": {
+                "name": "RequestMethod",
+                "type": "enum",
+                "symbols": ["GET", "POST", "HEAD", "OPTIONS", "PUT", "DELETE"]
+            }
+        },
+        {
+            "name": "request_status",
+            "type": {
+                "name": "RequestStatus",
+                "type": "enum",
+                "symbols": ["passed", "blocked", "alerted"]
+            }
+        },
+        {
+            "name": "response_code",
+            "type": "int"
+        },
+        {
+            "name": "attack_type",
+            "type": "string"
+        },
+        {
+            "name": "content_length",
+            "type": "int"
+        },
+        {
+            "name": "content_type",
+            "type": "string"
+        },
+        {
+            "name": "language",
+            "type": "string"
+        },
+        {
+            "name": "referer",
+            "type": "string"
+        },
+        {
+            "name": "user_agent",
+            "type": "string"
+        },
+        {
+            "name": "uri",
+            "type": "string"
+        },
+        {
+            "name": "username",
+            "type": "string"
+        }
+    ]
+}

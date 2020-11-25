@@ -1,5 +1,9 @@
 package records;
 
+import records.avro.Event;
+import records.avro.RequestMethod;
+import records.avro.RequestStatus;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.time.LocalDateTime;
@@ -106,7 +110,7 @@ public class WAFEvent {
         return sessionId;
     }
 
-    public String getMethod() {
+    public String getRequestMethod() {
         return request.getMethod();
     }
 
@@ -114,27 +118,34 @@ public class WAFEvent {
         return request.getUri();
     }
 
-    public String getContentType() {
-        return request.header("Content-Type");
+    private String getHeaderIfAbsent(String header) {
+        header = (header != null) ? header : "";
+        return header;
     }
 
-    public String getContentLength() {
-        return request.header("Content-Length");
+    public String getContentType() {
+        return getHeaderIfAbsent(request.header("Content-Type"));
+    }
+
+    public Short getContentLength() {
+        String header = getHeaderIfAbsent(request.header("Content-Length"));
+        Short contentLength = (header.trim().isEmpty()) ? 0 : Short.parseShort(header);
+        return contentLength;
     }
 
     public String getLanguage() {
-        return request.header("Language");
+        return getHeaderIfAbsent(request.header("Language"));
     }
 
     public String getReferer() {
-        return request.header("Referer");
+        return getHeaderIfAbsent(request.header("Referer"));
     }
 
     public String getUserAgent() {
-        return request.header("User-Agent");
+        return getHeaderIfAbsent(request.header("User-Agent"));
     }
 
-    public String getStatus() {
+    public String getRequestStatus() {
         return request.getStatus();
     }
 
@@ -151,5 +162,25 @@ public class WAFEvent {
         sb.append("request=").append(request);
         sb.append(">");
         return sb.toString();
+    }
+
+    public Event toAvro() {
+        Event event = Event.newBuilder()
+            .setTimestamp(timestamp.toEpochSecond())
+            .setSrcIp(sourceIP.toString())
+            .setGeolocation(geolocation)
+            .setRequestMethod(RequestMethod.valueOf(getRequestMethod()))
+            .setRequestStatus(RequestStatus.valueOf(getRequestStatus()))
+            .setResponseCode(responseCode)
+            .setAttackType(attackType)
+            .setContentLength(getContentLength())
+            .setContentType(getContentType())
+            .setLanguage(getLanguage())
+            .setReferer(getReferer())
+            .setUserAgent(getUserAgent())
+            .setUri(getUri())
+            .setUsername(getUsername())
+            .build();
+        return event;
     }
 }

@@ -69,10 +69,6 @@ public class HttpRequest {
         return headers.get(name);
     }
 
-    public void header(String name, String value) {
-        headers.put(name, value);
-    }
-
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("HttpRequest<");
